@@ -33,7 +33,6 @@ jobs: # jobsで実行する内容を書く
             const yaml = require('js-yaml');
             const fs = require('fs');
             const changedFiles = JSON.parse('${{ steps.changed-files.outputs.all }}');
-            console.log(changedFiles);
             changedFiles.forEach(file => {
               if (file.startsWith('users/') && file.endsWith('.yaml')) {
                 const configFile = yaml.load(fs.readFileSync(file, 'utf8'));
@@ -42,19 +41,12 @@ jobs: # jobsで実行する内容を書く
                 fs.appendFileSync(process.env["GITHUB_ENV"], `USER_PASSWORD=${configFile.password}\n`);
               }
             });
-          debug: true
-
-      - name: Use Env Variables
-        run: |
-          echo "Schema Name: ${{ env.SCHEMA_NAME }}"
-          echo "DB User: ${{ env.USER_NAME }}"
-          echo "DB Password: ${{ env.USER_PASSWORD }}"
 
       - name: create-user shellscript
         run: bash .github/workflows/create-user.sh
         env:
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           HOST_NAME: 13.112.0.29
-          SCHEMA_NAME: ${{ env.SCHEMA_NAME }}
-          USER_NAME: ${{ env.USER_NAME }}
-          USER_PASSWORD: ${{ env.USER_PASSWORD }}
+          #SCHEMA_NAME: ${{ env.SCHEMA_NAME }}
+          #USER_NAME: ${{ env.USER_NAME }}
+          #USER_PASSWORD: ${{ env.USER_PASSWORD }}
