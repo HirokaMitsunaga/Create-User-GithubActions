@@ -1,5 +1,17 @@
 #!/bin/bash
 
+#環境変数の確認
+echo "MYSQL_ROOT_PASSWORD"
+echo $MYSQL_ROOT_PASSWORD
+echo "HOST_NAME"
+echo $HOST_NAME
+echo "SCHEMA_NAME"
+echo $SCHEMA_NAME
+echo "USER_NAME"
+echo $USER_NAME
+echo "USER_PASSWORD"
+echo $USER_PASSWORD
+
 # スキーマの作成（MySQLの例）
 echo "Creating schema..."
 mysql -u root -p"$MYSQL_ROOT_PASSWORD" -h $HOST_NAME -e "CREATE DATABASE IF NOT EXISTS $SCHEMA_NAME;"
