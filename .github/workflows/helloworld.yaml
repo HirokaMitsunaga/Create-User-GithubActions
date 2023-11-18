@@ -19,5 +19,5 @@ jobs: # jobsで実行する内容を書く
           SCHEMA_NAME: test_schema
           USER_NAME: test_user
           USER_PASSWORD: test_password
-          DB_PASSWORD: IhVmfFZo8R?
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           HOST_NAME: 13.112.0.29
