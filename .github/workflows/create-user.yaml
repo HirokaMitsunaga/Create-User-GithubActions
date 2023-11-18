@@ -56,6 +56,6 @@ jobs: # jobsで実行する内容を書く
         env:
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           HOST_NAME: 13.112.0.29
-          SCHEMA_NAME: ${{ env.SCHEMA_NAME }}"
-          USER_NAME: ${{ env.USER_NAME }}"
-          USER_PASSWORD: ${{ env.USER_PASSWORD }}"
+          SCHEMA_NAME: ${{ env.SCHEMA_NAME }}
+          USER_NAME: ${{ env.USER_NAME }}
+          USER_PASSWORD: ${{ env.USER_PASSWORD }}
