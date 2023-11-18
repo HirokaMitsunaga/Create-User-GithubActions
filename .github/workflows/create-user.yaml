@@ -37,6 +37,7 @@ jobs: # jobsで実行する内容を書く
             changedFiles.forEach(file => {
               if (file.startsWith('users/') && file.endsWith('.yaml')) {
                 const configFile = yaml.load(fs.readFileSync(file, 'utf8'));
+                console.log(configFile);
                 fs.appendFileSync('$GITHUB_ENV', `SCHEMA_NAME=${configFile.schema_name}\n`);
                 fs.appendFileSync('$GITHUB_ENV', `USER_NAME=${configFile.username}\n`);
                 fs.appendFileSync('$GITHUB_ENV', `USER_PASSWORD=${configFile.password}\n`);
