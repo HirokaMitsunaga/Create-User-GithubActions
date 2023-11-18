@@ -20,6 +20,7 @@ jobs: # jobsで実行する内容を書く
         uses: lots0logs/gh-action-get-changed-files@master
         with:
           format: "json"
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Read YAML file
         id: read-config
