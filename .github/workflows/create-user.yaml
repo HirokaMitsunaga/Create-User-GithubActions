@@ -17,7 +17,7 @@ jobs: # jobsで実行する内容を書く
 
       - name: Identify changed YAML files in config
         id: changed-files
-        uses: lots0logs/gh-action-get-changed-files@v2.2.2
+        uses: lots0logs/gh-action-get-changed-files@master
         with:
           format: "json"
 
