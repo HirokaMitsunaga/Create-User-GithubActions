@@ -41,6 +41,7 @@ jobs: # jobsで実行する内容を書く
                 fs.appendFileSync('$GITHUB_ENV', `USER_PASSWORD=${configFile.password}\n`);
               }
             });
+          debug: true
 
       - name: Use Env Variables
         run: |
