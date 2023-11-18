@@ -38,7 +38,7 @@ jobs: # jobsで実行する内容を書く
               }
             });
 
-      - name: example shellscript
+      - name: create-user shellscript
         run: bash .github/workflows/create-user.sh
         env:
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
