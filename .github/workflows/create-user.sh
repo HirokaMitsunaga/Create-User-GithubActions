@@ -1,10 +1,6 @@
 #!/bin/bash
 
 #環境変数の確認
-echo "MYSQL_ROOT_PASSWORD"
-echo $MYSQL_ROOT_PASSWORD
-echo "HOST_NAME"
-echo $HOST_NAME
 echo "SCHEMA_NAME"
 echo $SCHEMA_NAME
 echo "USER_NAME"
