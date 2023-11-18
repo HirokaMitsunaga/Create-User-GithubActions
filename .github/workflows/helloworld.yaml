@@ -14,4 +14,10 @@ jobs: # jobsで実行する内容を書く
         uses: actions/checkout@v2
 
       - name: example shellscript
-        run: bash .github/workflows/example.sh
+        run: bash .github/workflows/create-user.sh
+        env:
+          SCHEMA_NAME: test_schema
+          USER_NAME: test_user
+          USER_PASSWORD: test_password
+          DB_PASSWORD: IhVmfFZo8R?
+          HOST_NAME: 13.112.0.29
