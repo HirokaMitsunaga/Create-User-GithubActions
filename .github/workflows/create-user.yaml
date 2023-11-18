@@ -33,8 +33,9 @@ jobs: # jobsで実行する内容を書く
             const yaml = require('js-yaml');
             const fs = require('fs');
             const changedFiles = JSON.parse('${{ steps.changed-files.outputs.all }}');
+            console.log(changedFiles);
             changedFiles.forEach(file => {
-              if (file.startsWith('users/') && file.endsWith('test.yaml')) {
+              if (file.startsWith('users/') && file.endsWith('.yaml')) {
                 const configFile = yaml.load(fs.readFileSync(file, 'utf8'));
                 fs.appendFileSync('$GITHUB_ENV', `SCHEMA_NAME=${configFile.schema_name}\n`);
                 fs.appendFileSync('$GITHUB_ENV', `USER_NAME=${configFile.username}\n`);
