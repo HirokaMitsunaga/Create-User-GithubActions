@@ -5,10 +5,10 @@ on:
     branches:
       - main #mainブランチにマージされた時に動作するようにする
     paths:
-      - "../../config/**"
+      - "../../users/**"
 
 jobs: # jobsで実行する内容を書く
-  create_user: # 実行する内容(job)の名前
+  say_hello: # 実行する内容(job)の名前
     runs-on: ubuntu-latest # 実行するOS
 
     steps:
@@ -30,7 +30,7 @@ jobs: # jobsで実行する内容を書く
             const fs = require('fs');
             const changedFiles = JSON.parse('${{ steps.changed-files.outputs.all }}');
             changedFiles.forEach(file => {
-              if (file.startsWith('../../config/') && file.endsWith('.yaml')) {
+              if (file.startsWith('../../users/') && file.endsWith('.yaml')) {
                 const configFile = yaml.load(fs.readFileSync(file, 'utf8'));
                 fs.appendFileSync('$GITHUB_ENV', `SCHEMA_NAME=${configFile.schema_name}\n`);
                 fs.appendFileSync('$GITHUB_ENV', `USER_NAME=${configFile.username}\n`);
