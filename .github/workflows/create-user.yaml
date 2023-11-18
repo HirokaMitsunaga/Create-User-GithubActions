@@ -5,7 +5,7 @@ on:
     branches:
       - main #mainブランチにマージされた時に動作するようにする
     paths:
-      - "../../users/**"
+      - "../../users/*.yaml"
 
 jobs: # jobsで実行する内容を書く
   say_hello: # 実行する内容(job)の名前
